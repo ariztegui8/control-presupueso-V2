@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Error from './Error';
 
-const NuevoPresupuesto = ({presupuesto, setPresupuesto, setIsvalidPresupuesto}) => {
-
-  const [error, seterror] = useState(false);
+const NuevoPresupuesto = ({presupuesto, setPresupuesto, setIsvalidPresupuesto, error, seterror}) => {
 
   const handlePresupuesto = e =>{
     e.preventDefault();
@@ -37,11 +36,16 @@ const NuevoPresupuesto = ({presupuesto, setPresupuesto, setIsvalidPresupuesto}) 
             </div>
 
             <input 
+                className='btn btn-info'
                 type="submit"
                 value="Añadir"
             />
 
-            {error && <p>No es un presupuesto valido</p>}
+            {error &&
+             <Error
+              mensaje="Presupuesto no Válido"
+              
+              />}
         </form>
     </div>
   )

@@ -8,3 +8,21 @@
     right: 30px;
     cursor: pointer;
 }
+
+.container-modal{
+    background: #000000f5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.container-close p{
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    right: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
