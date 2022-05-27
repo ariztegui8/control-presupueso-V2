@@ -97,6 +97,7 @@ const Modal = ({setModal, error, seterror, guardarGasto}) => {
                         <option value="vicios">Vicios</option>
                         <option value="servicios">Servicios</option>
                         <option value="combustible">Combustible</option>
+                        <option value="salud">Salud</option>
                     </select>
                 </div>
 

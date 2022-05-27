@@ -1,12 +1,27 @@
+body{
+    background-color: cadetblue !important;
+}
+.contenedor{
+    background-color: lightblue !important;
+    padding: 20px;
+}
+
+.fijar{
+    overflow: hidden;
+    height: 100vh;
+}
 
 .icon{
    position: relative;
 }
-.icon img{
-    width: 5%;
+
+.icon p{
     position: absolute;
     right: 30px;
     cursor: pointer;
+    font-size: 60px;
+    color: #fff;
+    font-weight: 700;
 }
 
 .container-modal{
@@ -25,4 +40,24 @@
     right: 30px;
     font-weight: 700;
     cursor: pointer;
+}
+.container-gasto{
+    background-color: #37859d;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.container-gasto p{
+    font-weight: 600;
+}
+
+.container-gasto span{
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.container-iconos{
+    margin-right: 20px;
 }
