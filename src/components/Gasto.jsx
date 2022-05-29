@@ -1,5 +1,14 @@
 import React from 'react'
 import {FormatearFecha} from '../components/helpers/index';
+import {
+    LeadingActions,
+    SwipeableList,
+    SwipeableListItem,
+    SwipeAction,
+    TrailingActions,
+  } from 'react-swipeable-list';
+
+  import 'react-swipeable-list/dist/styles.css';
 
 import logo1 from '../assets/logo1.png'
 import logo2 from '../assets/logo2.png'
@@ -21,20 +30,35 @@ const iconos = {
 
 const Gasto = ({gasto}) => {
 
+    const leadingActions = ()=>{
+        console.log('Editar');
+    }
+
+    const trailingActions = ()=>{
+        console.log('Eliminar');
+    }
+
     const {nombre, cantidad, categoria, fecha} = gasto;
 
   return (
-    <div className='container-gasto text-white w-50 p-3 mb-3'>
-        <div className='container-iconos'>
-            <img src={iconos[categoria]} alt="iconos" />
-        </div>
-        <div>
-            <p>Gasto: <span>{nombre}</span></p>
-            <p>Cantidad: <span>${cantidad}</span></p>
-            <p>Categoria: <span>{categoria}</span></p>
-            <p>Fecha: <span>{FormatearFecha(fecha)}</span></p>
-        </div>
-    </div>
+    <SwipeableList>
+        <SwipeableListItem
+            leadingActions={leadingActions}
+            trailingActions={trailingActions}
+        >
+            <div className='container-gasto text-white w-100 p-3 mb-3'>
+                <div className='container-iconos'>
+                    <img src={iconos[categoria]} alt="iconos" />
+                </div>
+                <div>
+                    <p>Gasto: <span>{nombre}</span></p>
+                    <p>Cantidad: <span>${cantidad}</span></p>
+                    <p>Categoria: <span>{categoria}</span></p>
+                    <p>Fecha: <span>{FormatearFecha(fecha)}</span></p>
+                </div>
+            </div>
+        </SwipeableListItem>
+    </SwipeableList>
   )
 }
 

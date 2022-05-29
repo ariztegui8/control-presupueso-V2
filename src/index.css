@@ -46,6 +46,7 @@ body{
     border-radius: 7px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .container-gasto p{
