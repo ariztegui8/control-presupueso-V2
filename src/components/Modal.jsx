@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Error from './Error';
 
-const Modal = ({setModal, error, seterror, guardarGasto}) => {
+const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar}) => {
 
 
     const [propiedades, setPropiedades] = useState({
@@ -9,6 +9,12 @@ const Modal = ({setModal, error, seterror, guardarGasto}) => {
         cantidad: '',
         categoria: ''
     });
+
+    useEffect(() => {
+        if(Object.keys(gastoEditar).length > 0){
+            setPropiedades(gastoEditar)
+          }
+    }, [])
 
     const {nombre, cantidad, categoria} = propiedades;
 
@@ -53,7 +59,7 @@ const Modal = ({setModal, error, seterror, guardarGasto}) => {
                 className='text-center w-25 m-auto text-white'
                 onSubmit={handleSubmit}
                 >
-                <legend className='fs-1 my-5'>Nuevo Gasto</legend>
+                <legend className='fs-1 my-5'> {gastoEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
 
                 <div className='mb-3'>
                     <label className='fs-5 mb-2' htmlFor="nombre">Nombre gasto</label>
@@ -104,7 +110,7 @@ const Modal = ({setModal, error, seterror, guardarGasto}) => {
                 <input 
                     className='mt-3 btn btn-primary'
                     type="submit"
-                    value="Añadir gasto"
+                    value={gastoEditar.nombre ? 'Guardar Cambios' : 'Añadir Gasto'}
                 />
 
                 {error && <Error mensaje="Todos los campos son obligatorios"/>}

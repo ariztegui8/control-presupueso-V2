@@ -28,23 +28,35 @@ const iconos = {
     salud: logo7
 }
 
-const Gasto = ({gasto}) => {
+const Gasto = ({gasto, setGastoEditar}) => {
 
-    const leadingActions = ()=>{
-        console.log('Editar');
-    }
+    const leadingActions = ()=>(
+        <LeadingActions>
+            <SwipeAction onClick={()=> setGastoEditar(gasto)}>
+                Editar
+            </SwipeAction>
+        </LeadingActions>
+    )
+        
 
-    const trailingActions = ()=>{
-        console.log('Eliminar');
-    }
+    const trailingActions = ()=>(
+        <TrailingActions>
+            <SwipeAction
+                onClick={()=> console.log('elimiado')}
+                destructive={true}
+            >
+                Eliminar
+            </SwipeAction>
+        </TrailingActions>
+    )
 
     const {nombre, cantidad, categoria, fecha} = gasto;
 
   return (
     <SwipeableList>
         <SwipeableListItem
-            leadingActions={leadingActions}
-            trailingActions={trailingActions}
+            leadingActions={leadingActions()}
+            trailingActions={trailingActions()}
         >
             <div className='container-gasto text-white w-100 p-3 mb-3'>
                 <div className='container-iconos'>

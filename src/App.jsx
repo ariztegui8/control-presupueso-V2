@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
 import {generarId} from './components/helpers/index';
@@ -13,9 +13,17 @@ function App() {
   const [modal, setModal] = useState(false);
   const [error, seterror] = useState(false);
   const [gastos, setGastos] = useState([]);
+  const [gastoEditar, setGastoEditar] = useState({});
+
+  useEffect(()=>{
+    if(Object.keys(gastoEditar).length > 0){
+      setModal(true)
+    }
+  },[gastoEditar])
 
   const handleNuevoGasto = ()=>{
     setModal(true)
+    setGastoEditar({})
   }
 
   const guardarGasto = gasto =>{
@@ -41,6 +49,7 @@ function App() {
         <div>
           <ListadoGastos
             gastos={gastos}
+            setGastoEditar={setGastoEditar}
           />
         </div>
 
@@ -58,6 +67,7 @@ function App() {
         error={error}
         seterror={seterror}
         guardarGasto={guardarGasto}
+        gastoEditar={gastoEditar}
       />}
    </div>
   );
