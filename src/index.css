@@ -74,13 +74,13 @@ body{
     padding: 20px;
 }
 
-.container-col8 p{
+.columna-2 p{
     font-size: 22px;
-    color: #37859d;
+    color: cadetblue;
     font-weight: 600;
 }
 
-.container-col8 span{
+.columna-2 span{
     font-size: 18px;
     font-weight: 500;
     color: #000;
