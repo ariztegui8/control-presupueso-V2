@@ -62,3 +62,26 @@ body{
 .container-iconos{
     margin-right: 20px;
 }
+
+.container-presupuesto{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eef0f9;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.container-col8 p{
+    font-size: 22px;
+    color: #37859d;
+    font-weight: 600;
+}
+
+.container-col8 span{
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}

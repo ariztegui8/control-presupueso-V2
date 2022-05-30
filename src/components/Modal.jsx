@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Error from './Error';
 
-const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar}) => {
+const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar, setGastoEditar}) => {
 
 
     const [propiedades, setPropiedades] = useState({
         nombre: '',
         cantidad: '',
-        categoria: ''
+        categoria: '',
+        id: '',
+        fecha: ''
     });
 
     useEffect(() => {
@@ -42,6 +44,7 @@ const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar}) => {
     }
 
     const cerrarModal = ()=>{
+        setGastoEditar({})
         setModal(false)
     }
 

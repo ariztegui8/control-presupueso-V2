@@ -28,7 +28,7 @@ const iconos = {
     salud: logo7
 }
 
-const Gasto = ({gasto, setGastoEditar}) => {
+    const Gasto = ({gasto, setGastoEditar, eliminarGasto}) => {
 
     const leadingActions = ()=>(
         <LeadingActions>
@@ -42,7 +42,7 @@ const Gasto = ({gasto, setGastoEditar}) => {
     const trailingActions = ()=>(
         <TrailingActions>
             <SwipeAction
-                onClick={()=> console.log('elimiado')}
+                onClick={()=> eliminarGasto(gasto.id)}
                 destructive={true}
             >
                 Eliminar
