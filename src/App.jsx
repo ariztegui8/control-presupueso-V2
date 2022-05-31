@@ -85,6 +85,7 @@ function App() {
         setIsvalidPresupuesto={setIsvalidPresupuesto}
         error={error}
         seterror={seterror}
+        setFiltro={setFiltro}
       />
 
      {isvalidPresupuesto && 

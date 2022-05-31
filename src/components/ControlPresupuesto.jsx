@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, setIsvalidPresupuesto}) => {
+const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, setIsvalidPresupuesto, setFiltro}) => {
 
     const [disponible, setDisponible] = useState(0);
     const [gastado, setGastado] = useState(0);
@@ -35,7 +35,8 @@ const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, set
             if(resultadoR){
                 setGastos([]);
                 setPresupuesto(0);
-                setIsvalidPresupuesto(false)
+                setIsvalidPresupuesto(false);
+                setFiltro('')
             } 
 
     }
