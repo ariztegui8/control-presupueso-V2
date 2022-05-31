@@ -59,15 +59,15 @@ const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar, setGastoEd
 
         <div>
             <form
-                className='text-center w-25 m-auto text-white'
+                className='text-center w-50 m-auto text-white'
                 onSubmit={handleSubmit}
                 >
                 <legend className='fs-1 my-5'> {gastoEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
 
-                <div className='mb-3'>
+                <div className='mb-3 '>
                     <label className='fs-5 mb-2' htmlFor="nombre">Nombre gasto</label>
                     <input
-                        className='w-100'
+                        className='w-100 input-style'
                         value={nombre}
                         name='nombre'
                         type="text"
@@ -80,7 +80,7 @@ const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar, setGastoEd
                 <div  className='mb-3'>
                     <label className='fs-5 mb-2' htmlFor="cantidad">Cantidad</label>
                     <input
-                        className='w-100'
+                        className='w-100 input-style'
                         value={cantidad}
                         name='cantidad'
                         type="number"
@@ -93,7 +93,7 @@ const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar, setGastoEd
                 <div  className='mb-3'>
                     <label className='fs-5 mb-2' htmlFor="cantidad">Categorias</label>
                     <select
-                        className='w-100'
+                        className='w-100 input-style'
                         value={categoria}
                         id="categoria"
                         name='categoria'
@@ -111,7 +111,7 @@ const Modal = ({setModal, error, seterror, guardarGasto, gastoEditar, setGastoEd
                 </div>
 
                 <input 
-                    className='mt-3 btn btn-primary'
+                    className='mt-3 btn btn-primary w-50'
                     type="submit"
                     value={gastoEditar.nombre ? 'Guardar Cambios' : 'Añadir Gasto'}
                 />

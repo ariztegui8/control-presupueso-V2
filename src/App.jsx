@@ -3,23 +3,52 @@ import Header from "./components/Header";
 import Modal from "./components/Modal";
 import {generarId} from './components/helpers/index';
 import ListadoGastos from "./components/ListadoGastos";
+import Filtros from "./components/Filtros";
 
 
 
 function App() {
 
-  const [presupuesto, setPresupuesto] = useState(0);
+  const [presupuesto, setPresupuesto] = useState(
+    Number(localStorage.getItem('presupuesto')) ?? 0
+  );
+
+  const [gastos, setGastos] = useState(
+    localStorage.getItem('gastos') ? JSON.parse(localStorage.getItem('gastos')) : []
+  );
+
   const [isvalidPresupuesto, setIsvalidPresupuesto] = useState(false);
   const [modal, setModal] = useState(false);
   const [error, seterror] = useState(false);
-  const [gastos, setGastos] = useState([]);
   const [gastoEditar, setGastoEditar] = useState({});
+  const [filtro, setFiltro] = useState('');
 
   useEffect(()=>{
     if(Object.keys(gastoEditar).length > 0){
       setModal(true)
     }
-  },[gastoEditar])
+  },[gastoEditar]);
+
+  useEffect(()=>{
+    localStorage.setItem('presupuesto', presupuesto ?? 0)
+  }, [presupuesto]);
+
+  useEffect(()=>{
+    localStorage.setItem('gastos', JSON.stringify(gastos) ?? []);
+  }, [gastos]);
+
+  useEffect(()=>{
+    if(filtro) {
+      console.log('filtrando...', filtro);
+    }
+  }, [filtro]);
+
+  useEffect(()=>{
+    const presupuestoLS = Number(localStorage.getItem('presupuesto')) ?? 0;
+      if(presupuestoLS > 0){
+        setIsvalidPresupuesto(true)
+      }
+  }, []);
 
   const handleNuevoGasto = ()=>{
     setModal(true)
@@ -58,6 +87,11 @@ function App() {
      {isvalidPresupuesto && 
        <>
         <div>
+          <Filtros
+            filtro={filtro}
+            setFiltro={setFiltro}
+          />
+
           <ListadoGastos
             gastos={gastos}
             setGastoEditar={setGastoEditar}
