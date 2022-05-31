@@ -116,3 +116,27 @@ body{
     border: none;
     text-align: center;
 }
+
+.negativo, .negativo span{
+    color: #dc2626 !important;
+}
+
+.swipeable-list-item__trailing-actions{
+    background: #dc2626;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 22px;
+    align-items: center;
+}
+
+.swipeable-list-item__leading-actions{
+    background: #167827;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 22px;
+    align-items: center;
+}
+
+.swipeable-list-item__trailing-actions span, .swipeable-list-item__leading-actions span{
+   padding: 0 20px;
+}

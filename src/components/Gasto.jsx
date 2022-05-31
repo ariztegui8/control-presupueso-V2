@@ -58,7 +58,7 @@ const iconos = {
             leadingActions={leadingActions()}
             trailingActions={trailingActions()}
         >
-            <div className='container-gasto text-white w-100 p-3 mb-3'>
+            <div className='container-gasto text-white w-100 p-3'>
                 <div className='container-iconos'>
                     <img src={iconos[categoria]} alt="iconos" />
                 </div>
